@@ -1,0 +1,10 @@
+html 
+    head 
+        title Desafio Nginx/Node Full Cycle
+    body
+        h1(style="background-color: #3993d6;")= message
+        ul(class="list-inline")
+            h3 - Lista de nomes cadastrada no banco de dados.
+            ul 
+                each lista in listas
+                    li #{lista.name}
