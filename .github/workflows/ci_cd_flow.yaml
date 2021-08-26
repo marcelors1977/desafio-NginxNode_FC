@@ -1,0 +1,33 @@
+name: CI_CD_Flow
+on:
+  pull_request:
+    branches: 
+      - master
+      - developer
+
+jobs:
+  CI:
+    name: ci-flow
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Docker Login
+      uses: docker/login-action@v1.10.0
+      with:
+        password: ${{ secrets.DOCKERHUB_PWD }}
+        username: ${{ secrets.DOCKERHUB_USER }}
+    - name: Build, push and run Node APP
+      uses: docker/build-push-action@v2.6.1
+      with:
+        context: ./nginx
+        file: ./nginx/Dockerfile
+        push: true
+        tags: 19061977/desafio-nginxnode_fc_nginx:latest
+    - name: Build, push and run Node APP
+      uses: docker/build-push-action@v2.6.1
+      with:
+        context: ./node
+        file: ./node/Dockerfile
+        push: true
+        tags: 19061977/desafio-nginxnode_fc_app:latest
