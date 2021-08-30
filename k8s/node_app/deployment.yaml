@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodeserver
+  labels:
+    app: nodeserver
+spec:
+  selector:
+    matchLabels:
+      app: nodeserver    
+  replicas: 10
+  template:
+    metadata:
+      labels:
+        app: nodeserver
+    spec:
+      containers:
+        - name: nodeserver
+          image: 19061977/desafio-nginxnode_fc_app
+          # command: ["tail","-f","/dev/null"]
+          env:
+            - name: db_name
+              value: mysql-h
+            - name: user_db
+              value: root
+            - name: pass_db
+              value: root
+
+          resources:
+            requests: 
+              cpu: "0.05"
+              memory: 20Mi
+            limits:
+              cpu: "0.05"
+              memory: 25Mi
