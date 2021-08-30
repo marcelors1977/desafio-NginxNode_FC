@@ -25,7 +25,7 @@ module.exports = {
             })
     },
     setPeople: () => {
-        connection.query(`SELECT COUNT(1) FROM people`, (err,result) => {
+        connection.query(`SELECT COUNT(1) total FROM people`, (err,result) => {
             if (err) throw err
 
             if (result[0].total === 0 ){
