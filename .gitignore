@@ -1,4 +1,4 @@
 nao_versionar/
-mysql/
+/mysql/
 node/node_modules/
-# .github/
+# k8s/
