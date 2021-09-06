@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodeserver
+  name: nodeserver-b
 spec:
   selector:
     matchLabels:
@@ -11,7 +11,7 @@ spec:
     metadata:
       labels:
         app: nodeserver
-        version: A
+        version: B
     spec:
       containers:
         - name: nodeserver

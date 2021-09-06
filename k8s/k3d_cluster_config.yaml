@@ -3,3 +3,9 @@ apiVersion: k3d.io/v1alpha2
 name: mycluster
 servers: 1
 agents: 2
+#k3d cluster create -p "8000:30000@loadbalancer" --agents 2
+
+#istioctl dashboard kiali
+#while true;do curl http://localhost:8000;echo; sleep 0.5; done;
+# kubectl exec "$FORTIO_POD" -c fortio -- fortio load -c 2 -qps 0 -t 200s -loglevel Warning http://nodeserver-service:8000
+#kubectl exec "$FORTIO_POD" -c fortio -- fortio load -c 2 -qps 0 -n 20 -loglevel Warning http://nodeserver-service:8000

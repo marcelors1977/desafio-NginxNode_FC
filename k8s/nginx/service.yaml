@@ -6,8 +6,9 @@ spec:
   selector:
     app: nginx
   type: ClusterIP
+  # type: LoadBalancer
   ports:
   - name: nginx-service
-    port: 8080
+    port: 80
     targetPort: 80
     protocol: TCP
