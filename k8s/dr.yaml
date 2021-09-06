@@ -1,0 +1,13 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: node-dr
+spec:
+  host: nodeserver-service
+  subsets:
+    - name: A
+      labels:
+        version: A
+    - name: B
+      labels:
+        version: B
