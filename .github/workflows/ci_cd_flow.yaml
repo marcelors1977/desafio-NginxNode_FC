@@ -45,14 +45,14 @@ jobs:
           method: kubeconfig
           kubeconfig: ${{ secrets.K8S_CONFIG }}
       - name: Deploy MySql
-        uses: Azure/k8s-deploy@v1
+        uses: Azure/k8s-deploy@v1.3
         with:
           manifests: |
             k8s/mysql/mysql-initdb-config.yaml
             k8s/mysql/mysql-service-h.yaml
             k8s/mysql/mysql-statefulset.yaml
       - name: Deploy WEB
-        uses: Azure/k8s-deploy@v1
+        uses: Azure/k8s-deploy@v1.3
         with:
           manifests: |
             k8s/node_app/deployment.yaml
