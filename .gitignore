@@ -3,5 +3,6 @@ nao_versionar/
 node/node_modules/
 # k8s/
 /automacao/ssh_Key
+/automacao/docker
 terraform/
 kubeconfig
