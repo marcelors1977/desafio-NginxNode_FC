@@ -1,0 +1,3 @@
+---
+istioctl_mirror: https://istio.io/downloadIstio
+istioctl_binary_dir: /root/istio-1.11.4/bin
