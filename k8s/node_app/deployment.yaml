@@ -6,7 +6,11 @@ spec:
   selector:
     matchLabels:
       app: nodeserver    
+<<<<<<< HEAD
   replicas: 2
+=======
+  replicas: 1
+>>>>>>> 72ab13fc7b25f632a1f8d073498930a906b1fd7a
   template:
     metadata:
       labels:
