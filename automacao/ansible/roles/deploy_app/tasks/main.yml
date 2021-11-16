@@ -1,0 +1,15 @@
+---
+- name: Starting MySql DB
+  shell: kubectl apply -f mysql/. 
+  args:
+    chdir: "{{ dir_k8s_deloyments }}"
+
+- name: Starting NodeJS FrontEnd
+  shell: kubectl apply -f node_app/. 
+  args:
+    chdir: "{{ dir_k8s_deloyments }}"
+
+- name: Applying Circuit Braker Istio
+  shell: kubectl apply -f circuit-breaker.yaml
+  args:
+    chdir: "{{ dir_k8s_deloyments }}"

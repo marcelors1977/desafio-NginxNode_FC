@@ -1,0 +1,17 @@
+# ansible-playbook -i ../hosts main.yaml
+- hosts: all
+  become: yes
+  become_method: sudo
+
+  # vars_prompt:
+  # - name: git_user
+  #   private: no
+  # - name: git_pass
+  #   private: yes
+    
+  roles:
+    - install_docker
+    - install_kubectl
+    - install_istio
+    - install_git
+    - deploy_app
