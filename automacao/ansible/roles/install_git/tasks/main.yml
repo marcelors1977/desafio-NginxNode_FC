@@ -1,0 +1,37 @@
+---
+- name: Install git and Checkout Aplication
+  apt:
+    name: git
+    state: present
+    update_cache: yes
+
+- name: find the directory /opt/fc2_app
+  shell: ls -1 /opt/fc2_app
+  ignore_errors: true
+  register: dir_exists
+
+- name: remove directory/opt/fc2_app to recreate
+  file: 
+    path: /opt/fc2_app
+    state: absent
+  with_items: not dir_exists.stdout_lines
+
+- name: Checkout APP Node Js with MySql
+  git:
+    repo: "{{ repo }}"
+    key_file: /root/.ssh/id_rsa.pub
+    dest: "/opt/fc2_app"
+    update: yes
+    version: master
+
+- name: prepare sparse git repository
+  shell: |
+    git config core.sparsecheckout true
+    echo "k8s/*" >> .git/info/sparse-checkout
+    git checkout master
+  args:
+    chdir: "/opt/fc2_app"
+
+
+
+    
